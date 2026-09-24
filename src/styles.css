@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #04050a;
+  color: #dbe3f4;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@layer components {
+  /* Horizontal rhythm. One gutter rule for the whole page. */
+  .pad {
+    @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-signal-400/80;
+  }
+
+  .lede {
+    @apply text-lg leading-relaxed text-slate-300/90 sm:text-xl;
+  }
+
+  .prose-line {
+    @apply text-[15px] leading-relaxed text-slate-400 sm:text-base;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04]
+           px-4 py-2 font-mono text-xs uppercase tracking-widest text-slate-200
+           transition-colors hover:border-signal-400/60 hover:bg-signal-400/10 hover:text-white
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-signal-400
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply border-signal-400/40 bg-signal-400/15 text-signal-300;
+  }
+
+  /* Marks a demo as real computation vs. a recording. */
+  .tag-live {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-signal-400/30
+           bg-signal-400/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em]
+           text-signal-300;
+  }
+}
+
+/* Range inputs, themed consistently across the demos. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #34d3ff;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(52, 211, 255, 0.6);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border: none;
+  border-radius: 50%;
+  background: #34d3ff;
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(52, 211, 255, 0.28);
+  color: #fff;
+}
