@@ -71,7 +71,12 @@ function cleanProse(md) {
     .replace(/`[^`\n]*`/g, " ")               // inline code
     .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")    // images
     .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")  // links -> text
-    .replace(/^\s{0,3}#{1,6}\s+/gm, "")       // headings
+    // Delete heading LINES outright. Previously only the "#" was stripped, which
+    // left titles and tables of contents in the prose — the Markov model then
+    // happily generated things like "II. Core Technical Drivers: Compute".
+    .replace(/^\s{0,3}#{1,6}[^\n]*$/gm, "\n")
+    .replace(/^[^\n]*\|[^\n]*\|[^\n]*$/gm, " ")   // table rows
+    .replace(/^\s*[IVXLC]+\.\s+[^\n]*$/gm, " ")   // roman-numeral section headers
     .replace(/^\s{0,3}>\s?/gm, "")            // quotes
     .replace(/^\s{0,3}[-*+]\s+/gm, "")        // bullets
     .replace(/^\s{0,3}\d+\.\s+/gm, "")        // ordered lists

@@ -38,6 +38,18 @@ body {
     @apply mx-auto w-full max-w-5xl px-5 sm:px-8;
   }
 
+  /* Chapter headline. Big, cinematic, readable over a live particle field. */
+  .act-title {
+    @apply font-display text-[clamp(2rem,5.5vw,4rem)] font-bold leading-[1.02] text-white;
+    text-shadow: 0 2px 40px rgba(4, 5, 10, 0.95), 0 1px 8px rgba(4, 5, 10, 0.9);
+  }
+
+  /* Text sits on top of moving particles; give it a readable bed. */
+  .pad > div,
+  .pad > .max-w-xl {
+    text-shadow: 0 1px 24px rgba(4, 5, 10, 0.85);
+  }
+
   .eyebrow {
     @apply font-mono text-[11px] uppercase tracking-[0.28em] text-signal-400/80;
   }

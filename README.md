@@ -1,6 +1,12 @@
 # The Engine of Everything — Portfolio 3
 
-A scroll-driven essay in five chapters, where every idea ends in something you can run.
+One WebGL particle field — 65,536 points, created once and never reset — that
+metamorphoses through five chapters. The same particles are the diffusing gas,
+the spacetime block, the attention graph, the sentence the model writes, and the
+agent's terrain.
+
+The earlier five-boxed-demos version is preserved at `/v1/` and at the git tag
+`v1-five-chapters`.
 
 **Live:** https://kishore2494.github.io/portfolio-3/
 
